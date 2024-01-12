@@ -1,0 +1,84 @@
+:root {
+  --light: #fff;
+  --dark: #706d6d;
+  --primary: #9146FF;
+}
+
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header a {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.header p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--dark);
+}
+
+.quiz-intro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.quiz-intro h1 {
+  font-size: 2.5rem;
+  color: var(--dark);
+  margin: 2.5rem 0;
+}
+
+.quiz-intro p {
+  max-width: 350px;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+.quiz-intro div {
+  margin: 1.5rem 0;
+}
+
+.quiz-intro div button {
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: opacity 0.25s ease-in;
+}
+
+.quiz-intro div button:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
