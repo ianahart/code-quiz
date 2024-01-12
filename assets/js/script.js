@@ -69,7 +69,7 @@ function saveUserScore(e) {
 
   if (initials.trim().length === 0) return;
 
-  var newScore = {initials, finalScore};
+  var newScore = {initials, finalScore, timeLeft};
   var existingScores = JSON.parse(localStorage.getItem('scores')) ?? [];
 
   existingScores.push(newScore);
@@ -122,7 +122,6 @@ function processQuizAnswer(e) {
   } else {
     timeLeft -= 10;
     if (timeLeft <= 0) {
-      timeLeft = 0;
       clearInterval(intervalID);
     }
     updateTimer(timeLeft);
@@ -157,7 +156,7 @@ function startTimer() {
     timeLeft--;
   }, 1000)
 }
-// start the quiz
+// start the quiz, hide the quiz intro and show the first question
 function startQuiz() {
   startTimer();
   hideElement(quizIntroEl, 'hidden')

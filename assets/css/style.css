@@ -57,7 +57,8 @@
 
 .quiz-intro div button,
 .quiz-content ul li button,
-.quiz-results button {
+.quiz-results button,
+.btns-container button {
   border: none;
   border-radius: 8px;
   background-color: var(--primary);
@@ -69,7 +70,8 @@
 }
 
 .quiz-intro div button:hover,
-.quiz-content ul li button:hover {
+.quiz-content ul li button:hover,
+.btns-container button:hover {
   opacity: 0.8;
 }
 
@@ -168,10 +170,46 @@
   margin-top: 2rem;
 }
 
+.highscores-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.highscores-container h1 {
+  color: var(--dark);
+}
+
+
+.highscores-container .highscore-row {
+  display: flex;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--light);
+  margin: 1rem;
+
+}
+.highscores-container .highscore-row p {
+  margin: 1rem;
+  text-align: left;
+}
+
+
+
+/*Make the even highscores have a darker shade of purple background*/
+.highscores-container .highscore-row:nth-child(even) {
+  background-color: #6a11ef;
+
+}
+
+/*hides an element*/
 .hidden {
   display: none;
 }
 
+/*shows an element*/
 .show {
   display: block;
 }
