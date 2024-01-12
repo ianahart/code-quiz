@@ -55,7 +55,8 @@
   margin: 1.5rem 0;
 }
 
-.quiz-intro div button {
+.quiz-intro div button,
+.quiz-content ul li button {
   border: none;
   border-radius: 8px;
   background-color: var(--primary);
@@ -66,11 +67,57 @@
   transition: opacity 0.25s ease-in;
 }
 
-.quiz-intro div button:hover {
+.quiz-intro div button:hover,
+.quiz-content ul li button:hover {
   opacity: 0.8;
 }
 
 
+.quiz {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.quiz-content {
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.quiz-content h2 {
+  font-size: 1.4rem;
+  color: var(--dark);
+}
+
+
+.quiz-content ul {
+
+ padding: 1rem;
+}
+
+.quiz-content ul li {
+   margin: 1.5rem;
+}
+
+.quiz-content ul li button {
+  width: 100%;
+}
+
+
+.feedback div {
+  height: 3px;
+  background: #ccc;
+  width: 300px;
+}
+
+.feedback p {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin: 1rem;
+  color: var(--dark);
+}
 
 
 
