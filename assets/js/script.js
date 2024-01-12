@@ -7,12 +7,16 @@ var quizIntroEl = document.querySelector('.quiz-intro');
 var timerEl = document.getElementById('timer');
 var feedbackEl = document.querySelector('.feedback');
 var feedbackParaEl = document.querySelector('.feedback p');
+var quizResultsEl = document.querySelector('.quiz-results');
+var formEl = document.querySelector('form');
+var scoreEl = document.getElementById('score');
 
 // global variables
 var questionIndex = 0;
 var timeLeft = 60;
 var score = 0;
 var intervalID;
+var finalScore = 0;
 
 // update the timer when passed a new time
 function updateTimer(newTime) {
@@ -49,6 +53,58 @@ function clearPreviousQuestion() {
   quizContentEl.innerHTML = "";
 }
 
+
+
+// get the percentage of correct answers
+function calculateScore() {
+  return ((100 / quizQuestions.length) * score) + "%";
+}
+
+
+
+
+function saveUserScore(e) {
+  e.preventDefault();
+  var initials = e.target.initials.value;
+
+  if (initials.trim().length === 0) return;
+
+  var newScore = {initials, finalScore};
+  var existingScores = JSON.parse(localStorage.getItem('scores')) ?? [];
+
+  existingScores.push(newScore);
+  localStorage.setItem('scores', JSON.stringify(existingScores));
+
+  window.location.href = './highscores.html';
+}
+
+
+function showQuizResults() {
+  showElement(quizResultsEl, "hidden");
+  finalScore = calculateScore();
+  scoreEl.textContent = finalScore;
+}
+
+
+// if not reached the last question clear previous question and show next question
+// else clear the timer and show the add initials component with user's score
+function determineToShowNextQuestion() {
+    if (questionIndex < quizQuestions.length - 1) {
+    questionIndex++;
+
+    clearPreviousQuestion();
+    showQuestion(questionIndex);
+  } else {
+    hideElement(quizContentEl, "hidden");
+    hideElement(feedbackEl, "hidden");
+
+    showQuizResults();
+    clearInterval(intervalID);
+  }
+}
+
+
+
 // handle the logic to determine if the answer is correct or incorrect
 function processQuizAnswer(e) {
   var element = e.target;
@@ -65,21 +121,16 @@ function processQuizAnswer(e) {
     feedbackParaEl.textContent = "Correct!";
   } else {
     timeLeft -= 10;
-    if (timeLeft < 0) {
+    if (timeLeft <= 0) {
       timeLeft = 0;
+      clearInterval(intervalID);
     }
     updateTimer(timeLeft);
     feedbackParaEl.textContent = "Wrong!";
   }
 
-  if (questionIndex < quizQuestions.length - 1) {
-    questionIndex++;
-    clearPreviousQuestion();
-    showQuestion(questionIndex);
-  } else {
-    console.log('reached the end');
-    clearInterval(intervalID);
-  }
+
+  determineToShowNextQuestion();
 }
 
 
@@ -115,3 +166,4 @@ function startQuiz() {
 // event listeners
 startQuizBtnEl.addEventListener('click', startQuiz);
 quizContentEl.addEventListener('click', processQuizAnswer);
+formEl.addEventListener('submit', saveUserScore);

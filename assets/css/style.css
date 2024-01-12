@@ -56,7 +56,8 @@
 }
 
 .quiz-intro div button,
-.quiz-content ul li button {
+.quiz-content ul li button,
+.quiz-results button {
   border: none;
   border-radius: 8px;
   background-color: var(--primary);
@@ -120,6 +121,52 @@
 }
 
 
+.quiz-results {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quiz-results h2 {
+   font-size: 1.6rem;
+   color: var(--dark);
+   text-align: left;
+   margin-bottom: 2rem;
+}
+
+.quiz-results p {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: var(--dark);
+}
+
+.quiz-results label {
+  color: var(--dark);
+    display: block;
+  margin-bottom: 0.25rem;
+}
+
+
+.quiz-results .input-container {
+  width: 100%;
+}
+
+.quiz-results input {
+  height: 35px;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.quiz-results button {
+  margin-top: 2rem;
+}
 
 .hidden {
   display: none;
