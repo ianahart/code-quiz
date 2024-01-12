@@ -55,7 +55,10 @@
   margin: 1.5rem 0;
 }
 
-.quiz-intro div button {
+.quiz-intro div button,
+.quiz-content ul li button,
+.quiz-results button,
+.btns-container button {
   border: none;
   border-radius: 8px;
   background-color: var(--primary);
@@ -66,18 +69,147 @@
   transition: opacity 0.25s ease-in;
 }
 
-.quiz-intro div button:hover {
+.quiz-intro div button:hover,
+.quiz-content ul li button:hover,
+.btns-container button:hover {
   opacity: 0.8;
 }
 
 
+.quiz {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.quiz-content {
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.quiz-content h2 {
+  font-size: 1.4rem;
+  color: var(--dark);
+}
+
+
+.quiz-content ul {
+
+ padding: 1rem;
+}
+
+.quiz-content ul li {
+   margin: 1.5rem;
+}
+
+.quiz-content ul li button {
+  width: 100%;
+}
+
+
+.feedback div {
+  height: 3px;
+  background: #ccc;
+  width: 300px;
+}
+
+.feedback p {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin: 1rem;
+  color: var(--dark);
+}
+
+
+.quiz-results {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quiz-results h2 {
+   font-size: 1.6rem;
+   color: var(--dark);
+   text-align: left;
+   margin-bottom: 2rem;
+}
+
+.quiz-results p {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: var(--dark);
+}
+
+.quiz-results label {
+  color: var(--dark);
+    display: block;
+  margin-bottom: 0.25rem;
+}
+
+
+.quiz-results .input-container {
+  width: 100%;
+}
+
+.quiz-results input {
+  height: 35px;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.quiz-results button {
+  margin-top: 2rem;
+}
+
+.highscores-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.highscores-container h1 {
+  color: var(--dark);
+}
+
+
+.highscores-container .highscore-row {
+  display: flex;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--light);
+  margin: 1rem;
+
+}
+.highscores-container .highscore-row p {
+  margin: 1rem;
+  text-align: left;
+}
 
 
 
+/*Make the even highscores have a darker shade of purple background*/
+.highscores-container .highscore-row:nth-child(even) {
+  background-color: #6a11ef;
+
+}
+
+/*hides an element*/
 .hidden {
   display: none;
 }
 
+/*shows an element*/
 .show {
   display: block;
 }

@@ -13,7 +13,7 @@
       <a href="/highscores.html">View Highscores</a>
     </section>
     <section>
-      <p>Time: <span id="time">0</span></p>
+      <p>Time: <span id="timer">0</span></p>
     </section>
   </header>
   <main>
@@ -23,6 +23,24 @@
       <div>
         <button id="startBtn">Start Quiz</button>
       </div>
+    </section>
+    <section class="quiz">
+        <section class="quiz-content hidden"></section>
+        <section class="feedback hidden">
+          <div></div>
+          <p></p>
+        </section>
+    </section>
+    <section class="quiz-results hidden">
+      <h2>All Done!</h2>
+      <p>Your final score is <span id="score"></span></p>
+      <form>
+        <div class="input-container">
+          <label for="initials">Enter your initials</label>
+          <input id="initials" name="initials" type="" text />
+          <button type="submit">Submit</button>
+        </div>
+      </form>
     </section>
   </main>
   <script type="module" src="./assets/js/script.js"></script>
