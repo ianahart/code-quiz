@@ -57,12 +57,12 @@ function clearPreviousQuestion() {
 
 // get the percentage of correct answers
 function calculateScore() {
-  return ((100 / quizQuestions.length) * score) + "%";
+  return (100 / quizQuestions.length) * score;
 }
 
 
 
-
+// save the users new score then navigate to the high scores page
 function saveUserScore(e) {
   e.preventDefault();
   var initials = e.target.initials.value;
@@ -78,11 +78,11 @@ function saveUserScore(e) {
   window.location.href = './highscores.html';
 }
 
-
+// calculate user score and render the score
 function showQuizResults() {
   showElement(quizResultsEl, "hidden");
   finalScore = calculateScore();
-  scoreEl.textContent = finalScore;
+  scoreEl.textContent = finalScore + '%';
 }
 
 
@@ -147,13 +147,14 @@ function showElement(element, state) {
 // start the timer to tick every second and start it at 60 seconds
 function startTimer() {
   intervalID = setInterval(function() {
-    timerEl.textContent = timeLeft;
-    timeLeft--;
+    updateTimer(timeLeft);
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       clearInterval(intervalID)
-      timeLeft = 60;
+      hideElement(quizContentEl, "hidden")
+      showQuizResults();
     }
+    timeLeft--;
   }, 1000)
 }
 // start the quiz
