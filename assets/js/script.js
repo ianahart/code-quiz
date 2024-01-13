@@ -152,6 +152,7 @@ function startTimer() {
       clearInterval(intervalID)
       hideElement(quizContentEl, "hidden")
       showQuizResults();
+      return;
     }
     timeLeft--;
   }, 1000)
