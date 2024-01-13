@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+  <!-- View Highscores link And Timer Start -->
   <header class="header">
     <section>
       <a href="/highscores.html">View Highscores</a>
@@ -16,7 +17,9 @@
       <p>Time: <span id="timer">0</span></p>
     </section>
   </header>
+  <!--View HighScores link and Timer end-->
   <main>
+    <!--Starting Screen start-->
     <section class="quiz-intro">
       <h1>Coding Quiz Challenge</h1>
       <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
@@ -24,13 +27,21 @@
         <button id="startBtn">Start Quiz</button>
       </div>
     </section>
+    <!-- Starting Screen End-->
+    <!--Quiz Game Start-->
     <section class="quiz">
+      <!--Questions Start-->
         <section class="quiz-content hidden"></section>
+        <!--Questions End-->
+        <!--Determine If Correct Start-->
         <section class="feedback hidden">
           <div></div>
           <p></p>
         </section>
+        <!--Determine If Correct End-->
     </section>
+    <!-- Quiz Game End-->
+    <!--Quiz Results Start-->
     <section class="quiz-results hidden">
       <h2>All Done!</h2>
       <p>Your final score is <span id="score"></span></p>
@@ -42,6 +53,7 @@
         </div>
       </form>
     </section>
+    <!--Quiz Results End-->
   </main>
   <script type="module" src="./assets/js/script.js"></script>
 </body>

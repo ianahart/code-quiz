@@ -1,14 +1,16 @@
+/*Set color pallete for site*/
 :root {
   --light: #fff;
   --dark: #706d6d;
   --primary: #9146FF;
 }
 
+/*Set font for site to Segoe UI*/
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+/*Place the high scores link and timer in opposite top corners of the page*/
 .header {
   padding: 1rem;
   display: flex;
@@ -16,6 +18,7 @@
   justify-content: space-between;
 }
 
+/*styles the view highscores link in the header*/
 .header a {
   font-size: 1.4rem;
   text-decoration: none;
@@ -23,12 +26,14 @@
   font-weight: bold;
 }
 
+/*styles the timer inside the header*/
 .header p {
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--dark);
 }
 
+/*center the quiz starting screen*/
 .quiz-intro {
   display: flex;
   justify-content: center;
@@ -37,12 +42,14 @@
   margin-top: 5rem;
 }
 
+/*styles the starting screen h1*/
 .quiz-intro h1 {
   font-size: 2.5rem;
   color: var(--dark);
   margin: 2.5rem 0;
 }
 
+/*styles the starting screen descrption*/
 .quiz-intro p {
   max-width: 350px;
   font-size: 1.2rem;
@@ -51,10 +58,12 @@
   color: var(--dark);
 }
 
+/*give top and bottom margin to the div wrapping the start quiz button*/
 .quiz-intro div {
   margin: 1.5rem 0;
 }
 
+/*styles all the buttons on the page*/
 .quiz-intro div button,
 .quiz-content ul li button,
 .quiz-results button,
@@ -68,14 +77,14 @@
   cursor: pointer;
   transition: opacity 0.25s ease-in;
 }
-
+/*changes all the buttons opacity on hover*/
 .quiz-intro div button:hover,
 .quiz-content ul li button:hover,
 .btns-container button:hover {
   opacity: 0.8;
 }
 
-
+/*center the quiz on the page*/
 .quiz {
   display: flex;
   justify-content: center;
@@ -83,7 +92,7 @@
   align-items: center;
   margin-top: 5rem;
 }
-
+/*centers the quiz content on the page*/
 .quiz-content {
   margin: 0 auto;
   margin-top: 5rem;
@@ -94,12 +103,12 @@
   color: var(--dark);
 }
 
-
+/*add a bit of padding around the questions*/
 .quiz-content ul {
-
  padding: 1rem;
 }
 
+/*add margin for the question list items*/
 .quiz-content ul li {
    margin: 1.5rem;
 }
@@ -108,7 +117,7 @@
   width: 100%;
 }
 
-
+/*make a divider for the feedback which is either correct or wrong*/
 .feedback div {
   height: 3px;
   background: #ccc;
@@ -122,7 +131,7 @@
   color: var(--dark);
 }
 
-
+/*center the quiz results on the page*/
 .quiz-results {
   display: flex;
   justify-content: center;
@@ -153,11 +162,12 @@
   margin-bottom: 0.25rem;
 }
 
-
+/*make the input's container take up 100% of the parent container*/
 .quiz-results .input-container {
   width: 100%;
 }
 
+/*styles the input that the user adds their initials in*/
 .quiz-results input {
   height: 35px;
   border: none;
@@ -165,11 +175,11 @@
   border-radius: 8px;
   width: 100%;
 }
-
+/*adds a bit of margin to the top of the button to give it some space from the input*/
 .quiz-results button {
   margin-top: 2rem;
 }
-
+/*centers the highscore section on the page*/
 .highscores-container {
   display: flex;
   justify-content: center;
@@ -182,7 +192,7 @@
   color: var(--dark);
 }
 
-
+/*make the list item a flex to have all the score details on one line*/
 .highscores-container .highscore-row {
   display: flex;
   border-radius: 8px;
