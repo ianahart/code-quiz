@@ -191,7 +191,8 @@
   align-items: center;
   margin: 0 auto;
   margin-top: 5rem;
-  width: 550px;
+  max-width: 550px;
+  width: 90%;
   background: #f9f5f5;
   padding: 1rem;
   border-radius: 8px;
@@ -245,7 +246,7 @@
 }
 
 @media screen and (max-width:576px) {
-  .quiz-content, .highscores-container {
+  .quiz-content {
     width: 95%;
   }
 }
