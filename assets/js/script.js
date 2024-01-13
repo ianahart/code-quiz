@@ -122,6 +122,7 @@ function processQuizAnswer(e) {
   } else {
     timeLeft -= 10;
     if (timeLeft <= 0) {
+      timeLeft = 0;
       clearInterval(intervalID);
     }
     updateTimer(timeLeft);
