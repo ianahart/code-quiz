@@ -96,6 +96,10 @@
 .quiz-content {
   margin: 0 auto;
   margin-top: 5rem;
+  width: 550px;
+  background:#f9f5f5;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
 .quiz-content h2 {
@@ -185,17 +189,33 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
   margin-top: 5rem;
+  width: 550px;
+  background: #f9f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/*set the direction child section to 100%*/
+.highscores-container > section {
+  width: 100%;
 }
 
 .highscores-container h1 {
   color: var(--dark);
 }
 
+.highscores-container ul {
+  padding: 0;
+}
+
+
 /*make the list item a flex to have all the score details on one line*/
 .highscores-container .highscore-row {
   display: flex;
   border-radius: 8px;
+  justify-content: space-between;
   background-color: var(--primary);
   color: var(--light);
   margin: 1rem;
@@ -224,3 +244,8 @@
   display: block;
 }
 
+@media screen and (max-width:576px) {
+  .quiz-content {
+    width: 95%;
+  }
+}
