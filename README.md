@@ -6,9 +6,8 @@
 
 <img width="600" alt="code-quiz" src="https://github.com/ianahart/code-quiz/assets/29121238/ce582292-2dd5-4f88-827f-fb5b5a848390">
 
-
-
 ### Description
+
 This code quiz consists of five questions about coding-related topics.
 The user has 60 seconds to answer the questions to try and earn a high score.
 When a user guesses an answer incorrectly, 10 seconds are deducted from the timer.
@@ -16,19 +15,31 @@ No time is deducted for a correct answer. Once the game has ran out of time or t
 You are shown the percent of questions you got correct. You then are asked to enter your initials.
 After entering your initials your score will be saved to local storage and then you will be taken to the high scores page. On the high score page you can either go back to the main starting screen or clear all high scores.
 
-
 ### Installation
- ```git clone``` https://github.com/ianahart/code-quiz.git
+
+`git clone` https://github.com/ianahart/code-quiz.git
 
 ### Usage
+
 Open up the **index.html** in the root of the folder
 and click **Start Quiz** and answer the coding-related questions.
 
 ### Visuals
+
 Live website [here](https://ianahart.github.io/code-quiz/)
 
+### References
+
+sort function https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+import https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+
+nullish coalescing operator https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
+
 ### Contributing
+
 This project is not accepting contributions at this time.
 
 ### Roadmap
+
 N/A
