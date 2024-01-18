@@ -1,4 +1,4 @@
-import { quizQuestions } from "./questions.js";
+import { quizQuestions } from './questions.js';
 
 // element selectors
 var startQuizBtnEl = document.getElementById('startBtn');
@@ -29,16 +29,17 @@ function showQuestion(questionIndex) {
   var currentQuestion = quizQuestions[questionIndex];
   var questionEl = document.createElement('h2');
   var answersEl = document.createElement('ul');
-  showElement(quizContentEl, "hidden");
+  showElement(quizContentEl, 'hidden');
 
   for (var i = 0; i < currentQuestion.answers.length; i++) {
-      var listItemEl = document.createElement('li');
-      var answerEl = document.createElement("button");
+    var listItemEl = document.createElement('li');
+    var answerEl = document.createElement('button');
 
-      answerEl.textContent = currentQuestion.answers[i];
+    answerEl.setAttribute('data-answer', currentQuestion.answers[i]);
+    answerEl.textContent = currentQuestion.answers[i];
 
-      listItemEl.appendChild(answerEl);
-      answersEl.appendChild(listItemEl);
+    listItemEl.appendChild(answerEl);
+    answersEl.appendChild(listItemEl);
   }
 
   questionEl.textContent = currentQuestion.question;
@@ -47,20 +48,15 @@ function showQuestion(questionIndex) {
   quizContentEl.appendChild(answersEl);
 }
 
-
 // clear the previous question's content
 function clearPreviousQuestion() {
-  quizContentEl.innerHTML = "";
+  quizContentEl.innerHTML = '';
 }
-
-
 
 // get the percentage of correct answers
 function calculateScore() {
   return (100 / quizQuestions.length) * score;
 }
-
-
 
 // save the users new score then navigate to the high scores page
 function saveUserScore(e) {
@@ -69,7 +65,7 @@ function saveUserScore(e) {
 
   if (initials.trim().length === 0) return;
 
-  var newScore = {initials, finalScore, timeLeft};
+  var newScore = { initials, finalScore, timeLeft };
   var existingScores = JSON.parse(localStorage.getItem('scores')) ?? [];
 
   existingScores.push(newScore);
@@ -80,45 +76,42 @@ function saveUserScore(e) {
 
 // calculate user score and render the score
 function showQuizResults() {
-  showElement(quizResultsEl, "hidden");
+  showElement(quizResultsEl, 'hidden');
   finalScore = calculateScore();
   scoreEl.textContent = finalScore + '%';
 }
 
-
 // if not reached the last question clear previous question and show next question
 // else clear the timer and show the add initials component with user's score
 function determineToShowNextQuestion() {
-    if (questionIndex < quizQuestions.length - 1) {
+  if (questionIndex < quizQuestions.length - 1) {
     questionIndex++;
 
     clearPreviousQuestion();
     showQuestion(questionIndex);
   } else {
-    hideElement(quizContentEl, "hidden");
-    hideElement(feedbackEl, "hidden");
+    hideElement(quizContentEl, 'hidden');
+    hideElement(feedbackEl, 'hidden');
 
     showQuizResults();
     clearInterval(intervalID);
   }
 }
 
-
-
 // handle the logic to determine if the answer is correct or incorrect
 function processQuizAnswer(e) {
   var element = e.target;
 
-  if (!element.matches("button")) {
+  if (!element.matches('button')) {
     return;
   }
 
-  var userAnswer = element.textContent;
-  showElement(feedbackEl, "hidden");
+  var userAnswer = element.getAttribute('data-answer');
+  showElement(feedbackEl, 'hidden');
 
   if (quizQuestions[questionIndex].correctAnswer === userAnswer) {
     score++;
-    feedbackParaEl.textContent = "Correct!";
+    feedbackParaEl.textContent = 'Correct!';
   } else {
     timeLeft -= 10;
     if (timeLeft <= 0) {
@@ -126,18 +119,15 @@ function processQuizAnswer(e) {
       clearInterval(intervalID);
     }
     updateTimer(timeLeft);
-    feedbackParaEl.textContent = "Wrong!";
+    feedbackParaEl.textContent = 'Wrong!';
   }
-
 
   determineToShowNextQuestion();
 }
 
-
-
 // hide element by adding class
 function hideElement(element, state) {
-    element.classList.add(state);
+  element.classList.add(state);
 }
 // show element by removing class
 function showElement(element, state) {
@@ -146,22 +136,22 @@ function showElement(element, state) {
 
 // start the timer to tick every second and start it at 60 seconds
 function startTimer() {
-  intervalID = setInterval(function() {
+  intervalID = setInterval(function () {
     updateTimer(timeLeft);
 
     if (timeLeft <= 0) {
-      clearInterval(intervalID)
-      hideElement(quizContentEl, "hidden")
+      clearInterval(intervalID);
+      hideElement(quizContentEl, 'hidden');
       showQuizResults();
       return;
     }
     timeLeft--;
-  }, 1000)
+  }, 1000);
 }
 // start the quiz, hide the quiz intro and show the first question
 function startQuiz() {
   startTimer();
-  hideElement(quizIntroEl, 'hidden')
+  hideElement(quizIntroEl, 'hidden');
   showQuestion(questionIndex);
 }
 
