@@ -142,6 +142,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(intervalID);
       hideElement(quizContentEl, 'hidden');
+      feedbackEl.textContent = '';
       showQuizResults();
       return;
     }
